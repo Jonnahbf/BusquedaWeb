@@ -1,0 +1,3 @@
+Jonathan Eduardo Ochoa Velásquez	15-01898-0
+
+Solo pude anexarle la búsqueda para los precios de compra mayores a una cantidad dada.
