@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <div id ="contenedor">
+        <input type="text" placeholder="Busqueda" id="busqueda">
+        <br>
+        <table border = "1" id="tabla">
+            <tr id="color">
+                <td>Producto</td>
+                <td>UM</td>
+                <td>Peso</td>
+                <td>Existencias</td>
+                <td>Expira</td>
+                <td>Precio Compra</td>
+                <td>Precio Venta</td>
+            </tr>
+            <tr>
+                <td class = "a">Leche</td>
+                <td class = "a">Lts</td>
+                <td class = "a">1</td>
+                <td class = "a">20</td>
+                <td class = "a">12/08/2020</td>
+                <td class = "a">10</td>
+                <td class = "a">15</td>
+            </tr>
+            <tr>
+                <td class = "a">Queso</td>
+                <td class = "a">Lbs</td>
+                <td class = "a">1</td>
+                <td class = "a">30</td>
+                <td class = "a">12/12/2020</td>
+                <td class = "a">25</td>
+                <td class = "a">35</td>
+            </tr>
+            <tr>
+                <td class = "a">Cuajada</td>
+                <td class = "a">Lbs</td>
+                <td class = "a">1</td>
+                <td class = "a">15</td>
+                <td class = "a">12/02/2020</td>
+                <td class = "a">13</td>
+                <td class = "a">22</td>
+            </tr>
+            <tr>
+                <td class = "a">Quesillo</td>
+                <td class = "a">Lbs</td>
+                <td class = "a">0.5</td>
+                <td class = "a">22</td>
+                <td class = "a">12/10/2019</td>
+                <td class = "a">18</td>
+                <td class = "a">30</td>
+            </tr>
+            <tr>
+                <td class = "a">Crema</td>
+                <td class = "a">Kg</td>
+                <td class = "a">0.5</td>
+                <td class = "a">80</td>
+                <td class = "a">08/08/2022</td>
+                <td class = "a">12</td>
+                <td class = "a">22</td>
+            </tr>
+            <tr>
+                <td class = "a">Leche Cabra</td>
+                <td class = "a">Lts</td>
+                <td class = "a">1</td>
+                <td class = "a">10</td>
+                <td class = "a">08/08/2022</td>
+                <td class = "a">5</td>
+                <td class = "a">12</td>
+            </tr>
+        </table>
+        <script>
+          let buscar = document.getElementById('busqueda');
+          buscar.onkeyup = function al(evt){
+                let a = document.getElementById('tabla');
+                let celdas;
+                var found = 1;
+                var aux2 = document.getElementById('busqueda').value.toLowerCase();
+                var separador = aux2.split('>');
+                var precio;
+                var precio2;
+                for(let i=1; i<a.rows.length; i++){
+                    celdas = a.rows[i].getElementsByClassName('a');
+                    found = 0;
+                    for(let j = 0; j<celdas.length; j++){
+                        comparacion = celdas[j].innerHTML.toLowerCase();
+                        if((aux2.length == 0) || ((comparacion.indexOf(aux2)) > -1)){
+                           found = 1;
+                        }
+                        precio = parseInt(separador[1], 10);
+                        precio2 = parseInt(celdas[5].innerHTML.toLowerCase(), 10);
+                        if(precio2 > precio){
+                            found = 1;
+                        }
+                        if(found == "1"){
+                            a.rows[i].style.display = "";
+                        }
+                        else{
+                            a.rows[i].style.display = "none";
+                        }
+                    }
+                                        
+                }
+          }
+        </script>
+    </div>
+</body>
+</html>
